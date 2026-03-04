@@ -1,22 +1,7 @@
 <?php
-//home.controller.php
-
+// home.controller.php
+// Controller from the homePage , get the films from the data base and pass it to template/home.php
 require_once('film.class.php');
-
-
-if($action == 'home')
-{
-	$films = Film::all();
-}
-elseif($action == 'film')
-{
-	$id = $_GET['id'];
-	$film = new Film($id);
-	$film->hydrate();
-}
-elseif($action == 'genre')
-{
-	$id = $_GET['id'];
-	$genre = new Genre($id);
-	$genre->hydrate();
-}
+// Static method herité  from parent table: this fucntion return a collection of objects films hydrated
+$films = Film::all(); 
+// I had modify to not get the if each time for each film, or genre but ce

@@ -16,11 +16,27 @@
   <br>
   <h2>Détails du film</h2>
   <?php
-  echo '<b>' . $film->titre . '</b><br>';
+  echo '<b>' . $film->titre . '</b><br><br>';
 
-  echo '<a href="index.php?action=genre&id=' . $film->id_genre . '">' . $film->genre->nom . '</a> réalisé par ' . $film->distributeur->nom;
+  echo 'Genre : ';
+  if ($film->genre) {
+    echo '<a href="index.php?action=genre&id=' . $film->id_genre . '">' . $film->genre->nom . '</a>';
+  } else {
+    echo 'inconnu';
+  }
+
   echo '<br>';
-  echo 'dureé : ' . $film->duree_minutes;
+
+  echo 'Distributeur : ';
+  if ($film->distributeur) {
+    echo '<a href="index.php?action=distributeur&id=' . $film->id_distributeur . '">' . $film->distributeur->nom . '</a>';
+  } else {
+    echo 'inconnu';
+  }
+
+  echo '<br>';
+  echo 'Durée : ' . $film->duree_minutes . ' min';
+
   ?>
   </ul>
 </body>
